@@ -19,5 +19,11 @@ def prediction():
     prediction = file.read()
     return jsonify({"Prediction": str(prediction)})
 
+@app.route('/accuracy',methods=['GET'])
+def accuracy():
+    file= open('./accuracy.txt',"r")
+    accuracy = file.read()
+    return jsonify({"Accuracy": str(accuracy)})
+
 if __name__ == '__main__':
     app.run(port=5000)
